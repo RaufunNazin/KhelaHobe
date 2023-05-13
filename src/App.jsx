@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import Events from "./pages/Events";
 import Games from "./pages/Games";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="home" element={<Home />}></Route>
               <Route path="login" element={<Login />}></Route>
               <Route path="register" element={<Registration />}></Route>
+              <Route path="profile" element={<Profile />}></Route>
               <Route path="events" element={<Events />}></Route>
               <Route path="mygames" element={<Games />}></Route>
             </Route>
