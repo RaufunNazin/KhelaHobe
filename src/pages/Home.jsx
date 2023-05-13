@@ -2,12 +2,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const Dashboard = () => {
+const Home = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar active="home"/>
     </div>
   );
 };
 
-export default Dashboard;
+export default Home;

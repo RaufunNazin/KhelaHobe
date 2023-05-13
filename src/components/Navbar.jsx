@@ -16,7 +16,7 @@ const Navbar = ({ active }) => {
     window.location.reload();
   };
   return (
-    <nav className="bg-white border-b border-black">
+    <nav className="bg-white border-b border-gray-300">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
         <div className="self-center text-xl lg:text-2xl cursor-pointer font-semibold whitespace-nowrap">
           Khela Hobe

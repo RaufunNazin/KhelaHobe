@@ -77,7 +77,7 @@ const Login = () => {
         </div>
         <label className="fixed top-5 left-5 md:top-10 md:left-10 inline-flex items-center mb-4 cursor-pointer">
           <FaHome
-            onClick={() => nav("/dashboard")}
+            onClick={() => nav("/home")}
             className="text-3xl cursor-pointer"
           />
         </label>
