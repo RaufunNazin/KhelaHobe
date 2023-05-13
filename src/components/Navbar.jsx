@@ -6,7 +6,7 @@ const Navbar = () => {
   const nav = useNavigate();
   return (
     <nav className="bg-white border-b border-black">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
         <div className="self-center text-xl lg:text-2xl cursor-pointer font-semibold whitespace-nowrap">
           Khela Hobe
         </div>
@@ -15,10 +15,17 @@ const Navbar = () => {
             <li>
               <div
                 onClick={() => nav("/home")}
-                className="block cursor-pointer py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
-                aria-current="page"
+                className="block cursor-pointer py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
                 Home
+              </div>
+            </li>
+            <li>
+              <div
+                onClick={() => nav("/profile")}
+                className="block cursor-pointer py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+              >
+                Profile
               </div>
             </li>
             <li>
@@ -41,7 +48,7 @@ const Navbar = () => {
         </div>
         <div
           onClick={() => nav("/login")}
-          className="hidden w-full md:block md:w-auto bg-blue-500 text-white  cursor-pointer py-1 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700"
+          className="hidden font-medium w-full md:block md:w-auto bg-blue-500 text-white  cursor-pointer py-1 px-3 rounded md:border-0"
         >
           Login
         </div>
