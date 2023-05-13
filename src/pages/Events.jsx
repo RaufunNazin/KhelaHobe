@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Table } from "antd";
 import Navbar from "../components/Navbar";
 
 const Events = () => {
@@ -31,7 +31,7 @@ const Events = () => {
   const data = [
     {
       key: "1",
-      name: "CSEDU Indoor Games",
+      name: "CSEDU Indoor Games 2024",
       start: "Jan 31, 2024",
       address: "Dept. of CSE, University of Dhaka",
       action: "Participate"

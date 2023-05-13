@@ -6,6 +6,7 @@ import Registration from "./pages/Registration";
 import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import Events from "./pages/Events";
+import Games from "./pages/Games";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="login" element={<Login />}></Route>
               <Route path="register" element={<Registration />}></Route>
               <Route path="events" element={<Events />}></Route>
+              <Route path="mygames" element={<Games />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

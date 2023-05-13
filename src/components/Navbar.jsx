@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "antd";
+import { useGlobalState } from "../UserContext";
 
 const Navbar = ({ active }) => {
   const nav = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useGlobalState("user");
+  const [isLoggedIn, setIsLoggedIn] = useGlobalState("isLoggedIn");
   const [modal2Open, setModal2Open] = useState(false);
 
   const logout = () => {
