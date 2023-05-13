@@ -76,14 +76,14 @@ const Navbar = ({ active }) => {
         {isLoggedIn ? (
           <div
             onClick={() => setModal2Open(true)}
-            className="block cursor-pointer py-1 px-3 rounded md:border-0 bg-blue-500 text-white font-medium"
+            className="hidden w-full md:block md:w-auto cursor-pointer py-1 px-3 rounded md:border-0 bg-red-700 text-white font-medium"
           >
             Logout
           </div>
         ) : (
           <div
             onClick={() => nav("/login")}
-            className="block cursor-pointer py-1 px-3 rounded md:border-0 bg-blue-500 text-white font-medium"
+            className="hidden w-full md:block md:w-auto cursor-pointer py-1 px-3 rounded md:border-0 bg-blue-500 text-white font-medium"
           >
             Login
           </div>

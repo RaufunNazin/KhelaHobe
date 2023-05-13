@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
+import Events from "./pages/Events";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="home" element={<Home />}></Route>
               <Route path="login" element={<Login />}></Route>
               <Route path="register" element={<Registration />}></Route>
+              <Route path="events" element={<Events />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
