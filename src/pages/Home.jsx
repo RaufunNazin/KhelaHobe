@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import addNotification from "react-push-notification";
-import { Notifications } from "react-push-notification";
 
 const Home = () => {
   useEffect(() => {
@@ -24,7 +22,6 @@ const Home = () => {
   return (
     <div>
       <Navbar active="home" />
-      <Notifications />
       <button onClick={notify}>notify</button>
     </div>
   );
