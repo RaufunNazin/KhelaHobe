@@ -1,14 +1,71 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { useLocation } from "react-router-dom";
+import { Table } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import user from "../data/user.json";
 import games from "../data/games.json";
+import events from "../data/events.json";
 
 const Home = () => {
   const location = useLocation();
+  const nav = useNavigate();
+  const eventColumns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Start Date",
+      dataIndex: "start",
+      key: "start",
+    },
+    {
+      title: "Location",
+      dataIndex: "address",
+      key: "address",
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+      key: "action",
+      render: (text) => (
+        <button
+          type="button"
+          className="bg-blue-500 text-white py-1 px-3 rounded font-medium"
+        >
+          {text}
+        </button>
+      ),
+    },
+  ];
+  const gameColumns = [
+    {
+      title: "Game name",
+      dataIndex: "Name",
+      key: "Name",
+    },
+    {
+      title: "Event",
+      dataIndex: "Event",
+      key: "Event",
+    },
+    {
+      title: "Round",
+      dataIndex: "Round",
+      key: "Round",
+    },
+    {
+      title: "Start",
+      dataIndex: "Start",
+      key: "Start",
+    },
+  ];
+
   const [permission, setPermission] = useState("");
   let today = new Date();
   const notification = () => {
@@ -67,7 +124,28 @@ const Home = () => {
         theme="colored"
       />
       <Navbar active="home" />
-      <button onClick={notify}>notify</button>
+      <div className="mt-8">
+        <div className="flex items-center">
+          <hr className="w-1/6 border border-black" />
+          <div className="mx-4 text-2xl">Events</div>
+          <hr className="w-5/6 border border-black" />
+        </div>
+        <div onClick={()=>nav("/events")} className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24">View all Events</div>
+        <div className="mx-4 lg:mx-32 mt-8">
+          <Table columns={eventColumns} dataSource={events} pagination={false}/>
+        </div>
+      </div>
+      <div className="mt-16">
+        <div className="flex items-center">
+          <hr className="w-1/6 border border-black" />
+          <div className="mx-4 text-2xl">Games</div>
+          <hr className="w-5/6 border border-black" />
+        </div>
+        <div onClick={()=>nav("/mygames")} className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24">View all Games</div>
+        <div className="mx-4 lg:mx-32 mt-8">
+          <Table columns={gameColumns} dataSource={games.slice(0,3)} pagination={false}/>
+        </div>
+      </div>
     </div>
   );
 };

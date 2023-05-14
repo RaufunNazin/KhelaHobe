@@ -2,6 +2,7 @@
 import React from "react";
 import { Table } from "antd";
 import Navbar from "../components/Navbar";
+import data from "../data/events.json"
 
 const Events = () => {
   const columns = [
@@ -28,15 +29,7 @@ const Events = () => {
         render: (text) => <button type="button" className="bg-blue-500 text-white py-1 px-3 rounded font-medium">{text}</button>
       }
   ];
-  const data = [
-    {
-      key: "1",
-      name: "CSEDU Indoor Games 2024",
-      start: "Jan 31, 2024",
-      address: "Dept. of CSE, University of Dhaka",
-      action: "Participate"
-    }
-  ];
+
   return (
     <div>
       <Navbar active="events" />
