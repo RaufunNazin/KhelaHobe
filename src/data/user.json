@@ -1,12 +1,9 @@
 [
   {
-    "id": 1,
+    "name": "Raufun Nazin Srizon",
     "email": "raufun.nazin13@gmail.com",
-    "password": "password"
-  },
-  {
-    "id": 1,
-    "email": "admin@khelahobe.com",
-    "password": "admin"
+    "password": "password",
+    "phone": "01682386618",
+    "picture": null
   }
 ]
