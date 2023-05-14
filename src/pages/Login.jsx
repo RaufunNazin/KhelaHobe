@@ -1,18 +1,49 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import user from "../data/user.json";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGlobalState } from "../UserContext";
 
 const Login = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useGlobalState("isLoggedIn");
+
+  useEffect(() => {}, []);
 
   const login = () => {
-    
+    for (let i = 0; i < user.length; i++) {
+      if (email === user[i].email) {
+        if (password === user[i].password) {
+          setIsLoggedIn(true);
+          nav("/home", { state: "login" });
+        } else {
+          toast.error("Incorrect password");
+        }
+      } else {
+        toast.error("User does not exist");
+      }
+    }
   };
+
   return (
     <section className="bg-gray-50">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
+      />
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen h-full lg:py-0">
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

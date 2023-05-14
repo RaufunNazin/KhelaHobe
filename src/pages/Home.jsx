@@ -1,9 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
+import { useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
+  const location = useLocation();
   useEffect(() => {
+    if (location.state === "login") {
+      toast.success("Login Successful");
+    }
     if (!("Notification" in window)) {
       console.log("Browser does not support desktop notification");
     } else {
@@ -21,6 +28,18 @@ const Home = () => {
   };
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
+      />
       <Navbar active="home" />
       <button onClick={notify}>notify</button>
     </div>

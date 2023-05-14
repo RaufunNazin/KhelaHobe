@@ -12,7 +12,6 @@ const Navbar = ({ active }) => {
   const [modal2Open, setModal2Open] = useState(false);
 
   const logout = () => {
-    localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     nav("/login");
     window.location.reload();
