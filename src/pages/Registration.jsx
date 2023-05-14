@@ -32,6 +32,7 @@ const Registration = () => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                   required=""
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -47,6 +48,7 @@ const Registration = () => {
                   id="password"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                   required=""
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div>
@@ -62,6 +64,7 @@ const Registration = () => {
                   id="cpassword"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                   required=""
+                  onChange={(e) => setCPassword(e.target.value)}
                 />
               </div>
               <div className="flex items-center justify-between">
