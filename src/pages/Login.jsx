@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import user from "../data/user.json";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGlobalState } from "../UserContext";
@@ -11,21 +10,36 @@ const Login = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [user, setUser] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useGlobalState("isLoggedIn");
+  const [userInfo, setUserInfo] = useGlobalState("user");
 
-  useEffect(() => {}, []);
+  const location = useLocation();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+    if (location.state === "registered") {
+      toast.success("Registration Successful");
+      toast.warning("Please log in to continue");
+    }
+  }, []);
 
   const login = () => {
     for (let i = 0; i < user.length; i++) {
       if (email === user[i].email) {
         if (password === user[i].password) {
           setIsLoggedIn(true);
+          setUserInfo({
+            name: user[i].name,
+            mail: user[i].email,
+            phone: user[i].phone,
+          });
           nav("/home", { state: "login" });
+          localStorage.setItem("email", email);
+          localStorage.setItem("pass", password);
         } else {
           toast.error("Incorrect password");
         }
-      } else {
-        toast.error("User does not exist");
       }
     }
   };
@@ -50,7 +64,7 @@ const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Sign in to your account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6">
               <div>
                 <label
                   htmlFor="email"
@@ -88,7 +102,9 @@ const Login = () => {
               </div>
               <button
                 type="button"
-                onClick={() => login()}
+                onClick={() => {
+                  login();
+                }}
                 className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
               >
                 Sign in

@@ -17,16 +17,20 @@ const Registration = () => {
 
   const register = () => {
     if (password === cpassword) {
-      setData((data) => [
-        ...data,
-        {
-          name: name,
-          email: email,
-          password: password,
-          phone: phone,
-          picture: null,
-        },
-      ]);
+      localStorage.setItem(
+        "user",
+        JSON.stringify([
+          ...data,
+          {
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+            picture: null,
+          },
+        ])
+      );
+      nav("/login", { state: "registered" });
     } else {
       toast.error("Passwords do not match");
     }
@@ -35,10 +39,6 @@ const Registration = () => {
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("user")));
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(data));
-  }, [data]);
 
   return (
     <section className="bg-gray-50">
