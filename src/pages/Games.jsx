@@ -2,6 +2,7 @@
 import React from "react";
 import { Table } from "antd";
 import Navbar from "../components/Navbar";
+import data from "../data/games.json"
 
 const Games = () => {
   const columns = [
@@ -26,43 +27,7 @@ const Games = () => {
       key: "Start",
     },
   ];
-  const data = [
-    {
-      key: "1",
-      Name: "29 Cards",
-      Event: "CSEDU Indoor Games 2024",
-      Round: "Qualifying Round",
-      Start: "2024-03-14 09:00",
-    },
-    {
-      key: "2",
-      Name: "Table Tennis",
-      Event: "CSEDU Indoor Games 2024",
-      Round: "Round of 16",
-      Start: "2024-03-14 14:30",
-    },
-    {
-      key: "3",
-      Name: "Darts",
-      Event: "CSEDU Indoor Games 2024",
-      Round: "Semifinals",
-      Start: "2024-03-14 19:15",
-    },
-    {
-      key: "4",
-      Name: "Carrom",
-      Event: "CSEDU Indoor Games 2024",
-      Round: "Finals",
-      Start: "2024-03-15 16:00",
-    },
-    {
-      key: "5",
-      Name: "Pop Quiz",
-      Event: "CSEDU Indoor Games 2024",
-      Round: "Finals",
-      Start: "2024-03-16 11:00",
-    },
-  ];
+
   return (
     <div>
       <Navbar active="mygames" />

@@ -18,13 +18,11 @@ const Profile = () => {
           }`}
           alt="profile"
         />
-        <div className="flex justify-center my-6">
-          <button
-            type="button"
-            className="bg-blue-500 text-white py-1 px-3 rounded font-medium"
-          >
-            Change
-          </button>
+        <div className="flex justify-center items-center px-12 my-6 gap-x-4">
+          <div type="button" className=" text-blue-500 rounded font-medium">
+            Upload Picture
+          </div>
+          <input type="file" className="w-1/3 lg:w-1/6 lg:border-2"/>
         </div>
         <div className="text-center text-xl lg:text-3xl my-5">{user.name}</div>
         <div className="text-center text-xl lg:text-3xl my-5">{user.mail}</div>
