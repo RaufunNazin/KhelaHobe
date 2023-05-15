@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import data from "../data/games.json"
 
 const Games = () => {
+  const datam = JSON.parse(localStorage.getItem("games"))
   const columns = [
     {
       title: "Name of Games",
@@ -32,7 +33,7 @@ const Games = () => {
     <div>
       <Navbar active="mygames" />
       <div className="mx-4 lg:mx-32 mt-8">
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={datam} />
       </div>
     </div>
   );

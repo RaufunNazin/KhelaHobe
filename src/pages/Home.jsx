@@ -10,6 +10,8 @@ import games from "../data/games.json";
 import events from "../data/events.json";
 
 const Home = () => {
+  const eve = JSON.parse(localStorage.getItem("events"));
+  const gam = JSON.parse(localStorage.getItem("games"));
   const location = useLocation();
   const nav = useNavigate();
   const eventColumns = [
@@ -36,7 +38,13 @@ const Home = () => {
       render: (text) => (
         <button
           type="button"
-          className="bg-blue-500 text-white py-1 px-3 rounded font-medium"
+          id="part"
+          onClick={() => setModal2Open(true)}
+          className={` ${
+            text === "Participated"
+              ? "text-green-500 font-medium"
+              : "bg-blue-500 text-white py-1 px-3 rounded font-medium"
+          } `}
         >
           {text}
         </button>
@@ -130,9 +138,14 @@ const Home = () => {
           <div className="mx-4 text-2xl">Events</div>
           <hr className="w-5/6 border border-black" />
         </div>
-        <div onClick={()=>nav("/events")} className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24">View all Events</div>
+        <div
+          onClick={() => nav("/events")}
+          className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24"
+        >
+          View all Events
+        </div>
         <div className="mx-4 lg:mx-32 mt-8">
-          <Table columns={eventColumns} dataSource={events} pagination={false}/>
+          <Table columns={eventColumns} dataSource={eve} pagination={false} />
         </div>
       </div>
       <div className="mt-16">
@@ -141,9 +154,18 @@ const Home = () => {
           <div className="mx-4 text-2xl">Games</div>
           <hr className="w-5/6 border border-black" />
         </div>
-        <div onClick={()=>nav("/mygames")} className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24">View all Games</div>
+        <div
+          onClick={() => nav("/mygames")}
+          className="text-right text-blue-500 cursor-pointer mr-8 lg:mr-24"
+        >
+          View all Games
+        </div>
         <div className="mx-4 lg:mx-32 mt-8">
-          <Table columns={gameColumns} dataSource={games.slice(0,3)} pagination={false}/>
+          <Table
+            columns={gameColumns}
+            dataSource={gam.slice(0, 3)}
+            pagination={false}
+          />
         </div>
       </div>
     </div>
