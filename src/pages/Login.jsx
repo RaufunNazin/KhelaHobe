@@ -5,7 +5,10 @@ import { FaHome } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGlobalState } from "../UserContext";
-
+import users from "../data/user.json";
+import games from "../data/games.json";
+import event from "../data/events.json";
+import eventnew from "../data/eventnew.json";
 const Login = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState(null);
@@ -37,15 +40,41 @@ const Login = () => {
           nav("/home", { state: "login" });
           localStorage.setItem("email", email);
           localStorage.setItem("pass", password);
+          window.location.reload();
         } else {
           toast.error("Incorrect password");
         }
       }
     }
   };
+  const load = () => {
+    localStorage.setItem("user", JSON.stringify(users));
+    localStorage.setItem("events", JSON.stringify(eventnew));
+    localStorage.setItem("games", JSON.stringify(games));
+  };
+
+  const loadi = () => {
+    localStorage.setItem("user", JSON.stringify(users));
+    localStorage.setItem("events", JSON.stringify(event));
+    localStorage.setItem("games", JSON.stringify(games));
+  };
+
+  const loadie = () => {
+    localStorage.removeItem("events");
+    localStorage.removeItem("games");
+  };
 
   return (
     <section className="bg-gray-50">
+      <button onClick={load} className="">
+        .
+      </button>
+      <button onClick={loadi} className="">
+        _
+      </button>
+      <button onClick={loadie} className="">
+        .
+      </button>
       <ToastContainer
         position="top-right"
         autoClose={5000}

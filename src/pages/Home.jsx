@@ -163,7 +163,7 @@ const Home = () => {
         <div className="mx-4 lg:mx-32 mt-8">
           <Table
             columns={gameColumns}
-            dataSource={gam.slice(0, 3)}
+            dataSource={gam}
             pagination={false}
           />
         </div>
