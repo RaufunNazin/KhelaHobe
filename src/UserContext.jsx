@@ -3,11 +3,11 @@ const userState = {
   isLoggedIn: false,
   user: {
     name: "",
-    photo: "",
     mail: "",
     phone: "",
-    role: ""
+    role: "",
   },
+  photo: "",
 };
 const { useGlobalState } = createGlobalState(userState);
 export { useGlobalState };
