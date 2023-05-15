@@ -2,9 +2,10 @@
 import React from "react";
 import { Table } from "antd";
 import Navbar from "../components/Navbar";
-import data from "../data/events.json"
+import data from "../data/events.json";
 
 const Events = () => {
+  const event = JSON.parse(localStorage.getItem("events"));
   const columns = [
     {
       title: "Name",
@@ -23,18 +24,25 @@ const Events = () => {
       key: "address",
     },
     {
-        title: "Action",
-        dataIndex: "action",
-        key: "action",
-        render: (text) => <button type="button" className="bg-blue-500 text-white py-1 px-3 rounded font-medium">{text}</button>
-      }
+      title: "Action",
+      dataIndex: "action",
+      key: "action",
+      render: (text) => (
+        <button
+          type="button"
+          className="bg-blue-500 text-white py-1 px-3 rounded font-medium"
+        >
+          {text}
+        </button>
+      ),
+    },
   ];
 
   return (
     <div>
       <Navbar active="events" />
       <div className="mx-4 lg:mx-32 mt-8">
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={event} />
       </div>
     </div>
   );
