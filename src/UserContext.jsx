@@ -6,6 +6,7 @@ const userState = {
     photo: "",
     mail: "",
     phone: "",
+    role: ""
   },
 };
 const { useGlobalState } = createGlobalState(userState);

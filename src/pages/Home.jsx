@@ -45,7 +45,7 @@ const Home = () => {
   ];
   const gameColumns = [
     {
-      title: "Game name",
+      title: "Name of Games",
       dataIndex: "Name",
       key: "Name",
     },

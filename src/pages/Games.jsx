@@ -7,7 +7,7 @@ import data from "../data/games.json"
 const Games = () => {
   const columns = [
     {
-      title: "Game name",
+      title: "Name of Games",
       dataIndex: "Name",
       key: "Name",
     },

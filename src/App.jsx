@@ -10,6 +10,7 @@ import Games from "./pages/Games";
 import Profile from "./pages/Profile";
 import { useGlobalState } from "./UserContext";
 import { useEffect, useState } from "react";
+import Admin from "./pages/Admin";
 
 function App() {
   const [loading, setLoading] = useState(null);
@@ -30,7 +31,12 @@ function App() {
       if (localStorage.getItem("email") === user[i].email) {
         if (localStorage.getItem("pass") === user[i].password) {
           setIsLoggedIn(true);
-          setUserInfo({
+          setUserInfo(localStorage.getItem("email") === "raufun.nazin13@gmail.com" ? {
+            name: user[i].name,
+            mail: user[i].email,
+            phone: user[i].phone,
+            role: "admin"
+          } : {
             name: user[i].name,
             mail: user[i].email,
             phone: user[i].phone,
@@ -55,6 +61,7 @@ function App() {
                 <Route path="profile" element={<Profile />}></Route>
                 <Route path="events" element={<Events />}></Route>
                 <Route path="mygames" element={<Games />}></Route>
+                <Route path="admin" element={<Admin />}></Route>
               </Route>
             </Routes>
           </BrowserRouter>
